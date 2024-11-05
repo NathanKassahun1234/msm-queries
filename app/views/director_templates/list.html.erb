@@ -1,0 +1,29 @@
+<h1>List of directors</h1>
+
+<ul>
+  <% Director.all.each do |director| %>
+    <li><%= director.name %> (<%= director.dob %>)</li>
+  <% end %>
+</ul>
+
+<table border="1"> 
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Dob</th>
+    <th></th>
+  </tr>
+
+  <% Director.all.each do |director| %>
+    <tr>
+      <td><%= director.id %></td>
+      <td><%= image_tag(director.image) if director.image.present? %></td>
+      <td><%= director.name %></td>
+      <td><%= director.dob %></td>
+      <td>
+      <a href="/directors?<%= director.id%>">Show details
+      </td>
+    </tr>
+  <% end %>
+</table>
